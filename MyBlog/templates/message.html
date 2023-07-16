@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="newsletter" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="wow fadeInUp col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10" data-wow-delay="0.3s">
+				<h2>留言</h2>
+				<div class="newsletter_detail">
+					<form method="post" id="messagebox">
+						<div class="col-md-12 col-sm-6">
+							<input name="name" type="text" class="form-control" id="name" placeholder="Name" required>
+					  	</div>
+						<div class="col-md-12 col-sm-6">
+							<input name="message" type="message" class="form-control" id="message" placeholder="Message" required>
+					  	</div>
+						<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+							<input name="submit" type="submit" class="form-control" id="submit" value="发送">
+						</div>
+				  	</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+    <div class="container">
+        <div class="wow fadeIn col-md-12 col-sm-12">
+        {% for message in messages %}
+        <li><h4>{{message.name}}:</h4><br><p>{{message.message}}</p></li>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
